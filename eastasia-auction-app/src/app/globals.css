@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  /* 銀白色系 — 亮色強調 (Silver accent) */
+  --color-silver-50: #f0f4f8;
+  --color-silver-100: #d9e2ec;
+  --color-silver-200: #bcccdc;
+  --color-silver-300: #9fb3c8;
+  --color-silver-400: #829ab1;
+  --color-silver-500: #627d98;
+  --color-silver-600: #486581;
+  --color-silver-700: #334e68;
+  --color-silver-800: #243b53;
+  --color-silver-900: #102a43;
+
+  /* 深海藍 / 軍藍色系 — 主色調 (Navy / Deep Sea Blue) */
+  --color-navy-50: #e0e8f0;
+  --color-navy-100: #c1cfe0;
+  --color-navy-200: #93adc8;
+  --color-navy-300: #6b8db5;
+  --color-navy-400: #4a7099;
+  --color-navy-500: #2d5a87;
+  --color-navy-600: #1e4976;
+  --color-navy-700: #153a60;
+  --color-navy-800: #0e2c4a;
+  --color-navy-900: #091e36;
+
+  /* 鐵灰色系 — 中性底色 (Iron Gray / Steel) */
+  --color-steel-50: #f0f1f3;
+  --color-steel-100: #d9dce1;
+  --color-steel-200: #b8bfc8;
+  --color-steel-300: #98a2ae;
+  --color-steel-400: #7b8794;
+  --color-steel-500: #616e7c;
+  --color-steel-600: #4a5568;
+  --color-steel-700: #3a4556;
+  --color-steel-800: #2d3748;
+  --color-steel-900: #1e2738;
+  --color-steel-950: #0f1923;
+
+  /* 點睛藍 — 按鈕及高光 (Accent Blue) */
+  --color-accent-50: #e6f0ff;
+  --color-accent-100: #bdd6ff;
+  --color-accent-200: #8ab8ff;
+  --color-accent-300: #5c9bff;
+  --color-accent-400: #3d83f6;
+  --color-accent-500: #2b6ce6;
+  --color-accent-600: #1a56cc;
+  --color-accent-700: #1346a8;
+  --color-accent-800: #0e3785;
+  --color-accent-900: #092762;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+      "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial,
+      sans-serif;
+    overscroll-behavior: none;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-in-out infinite;
+}
